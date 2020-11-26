@@ -1,0 +1,24 @@
+package com.example.database.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserDto {
+    @NotBlank(message = "Enter the username")
+    @Size(min = 3, max = 40,message = "Username must be between 3 and 40 symbols")
+    private String username;
+
+    @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
+    @NotBlank(message = "Enter the password")
+    private String password;
+
+    @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
+    private String repeatPassword;
+}
