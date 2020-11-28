@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.aspect.Loggable;
-import com.example.config.Mapper;
 import com.example.database.dto.UserDto;
 import com.example.database.entity.User;
 import com.example.database.repository.RoleRepository;
