@@ -6,8 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity(name = "CONTACTS")
-@Getter
-@Setter
+@Data
 @ToString(exclude = {"user"})
 @EqualsAndHashCode(exclude = {"user"})
 @AllArgsConstructor

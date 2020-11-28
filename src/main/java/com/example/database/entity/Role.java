@@ -1,12 +1,11 @@
 package com.example.database.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.List;
 
 @Entity(name = "ROLES")
 @Data
@@ -21,7 +20,6 @@ public class Role {
     @Column(name = "ROLE_NAME", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
-    @JsonBackReference
-    private Collection<User> users;
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    private List<User> users;
 }

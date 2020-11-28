@@ -6,10 +6,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity(name = "USERS")
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(exclude = {"role", "contacts"})
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "USER_USERNAME", nullable = false, length = 40)
     private String username;
@@ -25,10 +25,10 @@ public class User {
     @Column(name = "USER_PASSWORD", length = 40, nullable = false)
     private String password;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ROLE_ID")
-    @JsonManagedReference
-    private Role role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "USER_ROLES", joinColumns = {@JoinColumn(name = "USER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
+    private List<Role> roles;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonBackReference
