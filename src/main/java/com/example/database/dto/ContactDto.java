@@ -12,11 +12,13 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class ContactDto {
     @NotBlank(message = "Contact name can not be null")
-    @Size(min = 5, message = "Contact name must contains at least 5 symbols")
+    @Size(min = 5,max=40, message = "Contact name must contains 5-40 symbols")
     private String name;
 
+    @Size(max = 40, message = "Contact surname must contains max 40 symbols")
     private String surname;
 
     @NotBlank(message = "Phone can not be null")
+    @Size(min = 5,max=40, message = "Phone must contains 5-40 symbols")
     private String phone;
 }
