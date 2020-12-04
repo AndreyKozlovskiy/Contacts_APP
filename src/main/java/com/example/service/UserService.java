@@ -32,7 +32,7 @@ public class UserService implements IUserService {
     @Override
     @Loggable
     public User register(RegisterUserDto userDto) throws Exception {
-        if (userRepository.findByName(userDto.getName()) != null) {
+        if (userRepository.findByUsername(userDto.getName()) != null) {
             throw new Exception("User has already registered");
         }
 
@@ -43,7 +43,7 @@ public class UserService implements IUserService {
         User user = new User();
         user.setUsername(userDto.getName());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        Role roleUser = roleRepository.findByRole("user");
+        Role roleUser = roleRepository.findByName("user");
         List<Role> userRoles = new ArrayList<>();
         userRoles.add(roleUser);
 
@@ -58,7 +58,7 @@ public class UserService implements IUserService {
 
     @Override
     @Loggable
-    public User findByName(String name) { return userRepository.findByName(name); }
+    public User findByName(String name) { return userRepository.findByUsername(name); }
 
     @Override
     @Loggable

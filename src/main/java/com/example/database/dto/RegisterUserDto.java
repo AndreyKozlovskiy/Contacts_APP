@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -16,6 +17,10 @@ public class RegisterUserDto {
     @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
     @NotBlank(message = "Enter the password")
     private String password;
+
+    @NotBlank(message = "Enter email")
+    @Email(message = "Wrong email address")
+    private String email;
 
     @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
     private String repeatPassword;

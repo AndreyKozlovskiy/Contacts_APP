@@ -5,12 +5,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity(name = "CONTACTS")
+@Entity
 @Data
-@ToString(exclude = {"user"})
-@EqualsAndHashCode(exclude = {"user"})
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "CONTACTS")
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

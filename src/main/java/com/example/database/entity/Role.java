@@ -1,16 +1,13 @@
 package com.example.database.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "ROLES")
+@Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "ROLES")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
