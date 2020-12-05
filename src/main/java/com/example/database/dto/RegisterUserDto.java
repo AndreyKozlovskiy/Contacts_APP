@@ -12,15 +12,15 @@ import javax.validation.constraints.Size;
 public class RegisterUserDto {
     @NotBlank(message = "Enter the username")
     @Size(min = 3, max = 40,message = "Username must be between 3 and 40 symbols")
-    private String name;
+    private String username;
 
     @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
     @NotBlank(message = "Enter the password")
     private String password;
 
-    @NotBlank(message = "Enter email")
+   // @NotBlank(message = "Enter email")
     @Email(message = "Wrong email address")
-    private String email;
+   private String email;
 
     @Size(min = 8, max = 40,message = "Password must be between 8 and 20 symbols")
     private String repeatPassword;

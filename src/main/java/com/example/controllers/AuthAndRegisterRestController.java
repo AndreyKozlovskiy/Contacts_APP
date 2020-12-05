@@ -59,7 +59,6 @@ public class AuthAndRegisterRestController {
     }
 
     @PostMapping("/register")
-    @Loggable
     public ResponseEntity<User> register(@Valid @RequestBody RegisterUserDto registerUserDto) {
         try {
             userService.register(registerUserDto);

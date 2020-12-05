@@ -32,7 +32,7 @@ public class UserService implements IUserService {
     @Override
     @Loggable
     public User register(RegisterUserDto userDto) throws Exception {
-        if (userRepository.findByUsername(userDto.getName()) != null) {
+        if (userRepository.findByUsername(userDto.getUsername()) != null) {
             throw new Exception("User has already registered");
         }
 
@@ -41,8 +41,9 @@ public class UserService implements IUserService {
         }
 
         User user = new User();
-        user.setUsername(userDto.getName());
+        user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEmail(userDto.getEmail());
         Role roleUser = roleRepository.findByName("user");
         List<Role> userRoles = new ArrayList<>();
         userRoles.add(roleUser);
