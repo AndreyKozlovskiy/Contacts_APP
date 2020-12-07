@@ -32,7 +32,7 @@ public class RegisterUserDto {
         RegisterUserDto registerUserDto = new RegisterUserDto();
         registerUserDto.setUserId(user.getId());
         registerUserDto.setUsername(user.getUsername());
-
+        registerUserDto.setEmail(user.getEmail());
         return registerUserDto;
     }
 }
