@@ -27,4 +27,14 @@ public class Contact {
     @JoinColumn(name = "USER_ID")
     @JsonManagedReference
     private User user;
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id: " + id + ", " +
+                "contactName: " + contactName + ", " +
+                "contactSurname:" + contactSurname + ", " +
+                "contactPhone:" + contactPhone + ", " +
+                "}";
+    }
 }

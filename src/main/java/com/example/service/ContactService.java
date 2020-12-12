@@ -57,7 +57,7 @@ public class ContactService implements IContactService {
     @Loggable
     public void addContact(ContactDto contactDto) {
         Contact contact = ContactDto.toContact(contactDto);
-        contact.setUser(userRepository.findById(contactDto.getId()).get());
+        contact.setUser(userRepository.findById(contactDto.getUserId()).get());
 
         contactRepository.save(contact);
     }
