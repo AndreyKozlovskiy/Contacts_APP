@@ -69,7 +69,7 @@ public class ContactService implements IContactService {
         updatedContact.setUser(userRepository.findById(contact.getUserId()).get());
 
         updatedContact.setContactName(contact.getName());
-        updatedContact.setContactSurname(contact.getPhone());
+        updatedContact.setContactSurname(contact.getSurname());
         updatedContact.setContactPhone(contact.getPhone());
 
         contactRepository.save(updatedContact);
